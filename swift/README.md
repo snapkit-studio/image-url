@@ -15,7 +15,7 @@ The complete code is provided so you can copy and use it directly without openin
 <details>
 <summary><strong>View Full Code (185 lines)</strong></summary>
 
-```swift
+````swift
 import Foundation
 
 /// Image transformation parameters
@@ -200,7 +200,7 @@ public struct SnapkitImageURL {
         return parts.joined(separator: ",")
     }
 }
-```
+````
 
 </details>
 
@@ -212,11 +212,6 @@ Save the copied code as `SnapkitImageURL.swift` file in your project.
 
 - iOS 13.0+ / macOS 10.15+ / tvOS 13.0+ / watchOS 6.0+
 - Swift 5.9+
-
-Or in Xcode:
-
-1. File > Add Packages...
-2. Enter Repository URL: `https://github.com/snapkit-studio/snapkit-image-url-swift.git`
 
 ## Usage
 
@@ -368,19 +363,19 @@ The `url` parameter is **optional** and should only be used when you need to con
 
 ## Transform Options
 
-| Option      | Type       | Description                                     |
-| ----------- | ---------- | ----------------------------------------------- |
-| `w`         | `Int?`     | Image width (pixels)                            |
-| `h`         | `Int?`     | Image height (pixels)                           |
+| Option      | Type       | Description                                                |
+| ----------- | ---------- | ---------------------------------------------------------- |
+| `w`         | `Int?`     | Image width (pixels)                                       |
+| `h`         | `Int?`     | Image height (pixels)                                      |
 | `fit`       | `Fit?`     | Resize method (.contain, .cover, .fill, .inside, .outside) |
-| `format`    | `Format?`  | Output format (.jpeg, .png, .webp, .avif)       |
-| `rotation`  | `Int?`     | Rotation angle (degrees)                        |
-| `blur`      | `Int?`     | Blur intensity (0.3-1000)                       |
-| `grayscale` | `Bool?`    | Convert to grayscale                            |
-| `flip`      | `Bool?`    | Flip vertically                                 |
-| `flop`      | `Bool?`    | Flip horizontally                               |
-| `extract`   | `Extract?` | Extract region                                  |
-| `dpr`       | `Double?`  | Device Pixel Ratio (1.0-4.0)                    |
+| `format`    | `Format?`  | Output format (.jpeg, .png, .webp, .avif)                  |
+| `rotation`  | `Int?`     | Rotation angle (degrees)                                   |
+| `blur`      | `Int?`     | Blur intensity (0.3-1000)                                  |
+| `grayscale` | `Bool?`    | Convert to grayscale                                       |
+| `flip`      | `Bool?`    | Flip vertically                                            |
+| `flop`      | `Bool?`    | Flip horizontally                                          |
+| `extract`   | `Extract?` | Extract region                                             |
+| `dpr`       | `Double?`  | Device Pixel Ratio (1.0-4.0)                               |
 
 ## Development
 

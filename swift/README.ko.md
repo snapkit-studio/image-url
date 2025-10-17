@@ -13,7 +13,7 @@ Swift로 작성된 Snapkit 이미지 프록시 URL 생성 라이브러리입니�
 <details>
 <summary><strong>전체 코드 보기 (185줄)</strong></summary>
 
-```swift
+````swift
 import Foundation
 
 /// Image transformation parameters
@@ -198,7 +198,7 @@ public struct SnapkitImageURL {
         return parts.joined(separator: ",")
     }
 }
-```
+````
 
 </details>
 
@@ -210,11 +210,6 @@ public struct SnapkitImageURL {
 
 - iOS 13.0+ / macOS 10.15+ / tvOS 13.0+ / watchOS 6.0+
 - Swift 5.9+
-
-또는 Xcode에서:
-
-1. File > Add Packages...
-2. Repository URL 입력: `https://github.com/snapkit-studio/snapkit-image-url-swift.git`
 
 ## 사용법
 
