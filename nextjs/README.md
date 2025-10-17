@@ -125,7 +125,9 @@ export function buildSnapkitImageURL(
 Create a loader function for Next.js Image Component:
 
 ```ts
-// lib/snapkit-loader.ts
+// lib/snapkit-loader.js
+'use client'
+
 import { buildSnapkitImageURL } from "./snapkit-image-url";
 
 export default function snapkitLoader({
@@ -160,10 +162,12 @@ Configure the loader globally in your Next.js config:
 module.exports = {
   images: {
     loader: "custom",
-    loaderFile: "./lib/snapkit-loader.ts",
+    loaderFile: "./lib/snapkit-loader.js",
   },
 };
 ```
+
+> **Note**: The `loaderFile` path must be relative to your project root.
 
 Then use the Image component normally:
 
@@ -312,5 +316,5 @@ NEXT_PUBLIC_SNAPKIT_ORG=my-org
 
 ## References
 
-- [Next.js Image Component](https://nextjs.org/docs/api-reference/next/image)
-- [Next.js Custom Loader](https://nextjs.org/docs/api-reference/next/image#loader)
+- [Next.js Image Component](https://nextjs.org/docs/app/api-reference/components/image)
+- [Next.js Custom Loader](https://nextjs.org/docs/app/api-reference/components/image#loaderfile)

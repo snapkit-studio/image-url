@@ -125,7 +125,9 @@ export function buildSnapkitImageURL(
 Next.js Image Component용 loader 함수를 생성합니다:
 
 ```ts
-// lib/snapkit-loader.ts
+// lib/snapkit-loader.js
+'use client'
+
 import { buildSnapkitImageURL } from "./snapkit-image-url";
 
 export default function snapkitLoader({
@@ -160,10 +162,12 @@ Next.js 설정에서 loader를 전역으로 구성합니다:
 module.exports = {
   images: {
     loader: "custom",
-    loaderFile: "./lib/snapkit-loader.ts",
+    loaderFile: "./lib/snapkit-loader.js",
   },
 };
 ```
+
+> **참고**: `loaderFile` 경로는 프로젝트 루트를 기준으로 해야 합니다.
 
 이후 Image 컴포넌트를 일반적으로 사용합니다:
 
@@ -312,5 +316,5 @@ NEXT_PUBLIC_SNAPKIT_ORG=my-org
 
 ## 참고
 
-- [Next.js Image Component](https://nextjs.org/docs/api-reference/next/image)
-- [Next.js Custom Loader](https://nextjs.org/docs/api-reference/next/image#loader)
+- [Next.js Image Component](https://nextjs.org/docs/app/api-reference/components/image)
+- [Next.js Custom Loader](https://nextjs.org/docs/app/api-reference/components/image#loaderfile)
