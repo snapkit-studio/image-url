@@ -1,20 +1,13 @@
 # Snapkit Image URL Builder - Dart
 
-Snapkit 이미지 프록시 URL을 생성하는 Dart/Flutter 라이브러리입니다.
+Dart로 작성된 Snapkit 이미지 프록시 URL 생성 라이브러리입니다.
+
+> **⚠️ 안내**: 배포된 패키지가 아닌 참고용 구현입니다. 아래 코드를 프로젝트에 복사하여 사용하세요.
 
 ## 요구사항
 
 - Dart 3.0+
 - Flutter 3.0+ (Flutter 프로젝트에서 사용 시)
-
-## 설치
-
-`pubspec.yaml`에 추가:
-
-```yaml
-dependencies:
-  snapkit_image_url: ^1.0.0
-```
 
 설치:
 

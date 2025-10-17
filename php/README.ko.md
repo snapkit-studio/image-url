@@ -1,18 +1,12 @@
 # Snapkit Image URL Builder - PHP
 
-Snapkit 이미지 프록시 URL을 생성하는 PHP 라이브러리입니다.
+PHP로 작성된 Snapkit 이미지 프록시 URL 생성 라이브러리입니다.
+
+> **⚠️ 안내**: 배포된 패키지가 아닌 참고용 구현입니다. 아래 코드를 프로젝트에 복사하여 사용하세요.
 
 ## 요구사항
 
 - PHP 8.1+
-
-## 설치
-
-### Composer
-
-```bash
-composer require snapkit/image-url-php
-```
 
 ## 사용법
 

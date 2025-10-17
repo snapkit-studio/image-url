@@ -4,6 +4,8 @@
 
 Build Snapkit image proxy URLs for multiple languages and frameworks.
 
+> **⚠️ Note**: These are reference implementations, not published packages. Copy the example code from each language directory into your project.
+
 ## Supported Languages & Frameworks
 
 | Language/Framework | Platform | Package Manager | Documentation |
@@ -21,8 +23,11 @@ Build Snapkit image proxy URLs for multiple languages and frameworks.
 
 ### TypeScript
 
+Copy the `buildSnapkitImageURL` function from [typescript/src/buildSnapkitImageURL.ts](typescript/src/buildSnapkitImageURL.ts) and use it:
+
 ```typescript
-import { buildSnapkitImageURL } from '@snapkit/image-url-typescript';
+// Copy the function from typescript/src/buildSnapkitImageURL.ts
+// Then use it in your code:
 
 const imageUrl = buildSnapkitImageURL({
   organizationName: 'my-org',
@@ -38,8 +43,11 @@ const imageUrl = buildSnapkitImageURL({
 
 ### JavaScript
 
+Copy the `buildSnapkitImageURL` function from [javascript/src/buildSnapkitImageURL.js](javascript/src/buildSnapkitImageURL.js) and use it:
+
 ```javascript
-import { buildSnapkitImageURL } from '@snapkit/image-url-javascript';
+// Copy the function from javascript/src/buildSnapkitImageURL.js
+// Then use it in your code:
 
 const imageUrl = buildSnapkitImageURL({
   organizationName: 'my-org',
@@ -55,17 +63,12 @@ const imageUrl = buildSnapkitImageURL({
 
 ### Next.js
 
-```typescript
-// lib/snapkit-loader.ts
-import { createSnapkitLoader } from '@snapkit/image-url-nextjs';
+See the [Next.js documentation](nextjs/README.md) for complete implementation. Copy the helper functions and create a custom loader:
 
-export default createSnapkitLoader({
-  organizationName: 'my-org',
-  transform: {
-    format: 'webp',
-    fit: 'cover',
-  },
-});
+```typescript
+// 1. Copy buildSnapkitImageURL function to lib/snapkit-image-url.ts
+// 2. Create lib/snapkit-loader.ts with the loader implementation
+// 3. Configure next.config.js
 
 // next.config.js
 module.exports = {
@@ -120,8 +123,11 @@ export default defineNuxtConfig({
 
 ### Swift
 
+Copy the Swift implementation from [swift/Sources/](swift/Sources/) and use it:
+
 ```swift
-import SnapkitImageURL
+// Copy the implementation files from swift/Sources/
+// Then use it in your code:
 
 let builder = SnapkitImageURL(organizationName: "my-org")
 let imageURL = builder.build(
@@ -137,9 +143,11 @@ let imageURL = builder.build(
 
 ### Kotlin
 
+Copy the Kotlin implementation from [kotlin/src/](kotlin/src/) and use it:
+
 ```kotlin
-import dev.snapkit.imageurl.SnapkitImageURL
-import dev.snapkit.imageurl.TransformOptions
+// Copy the implementation files from kotlin/src/
+// Then use it in your code:
 
 val builder = SnapkitImageURL("my-org")
 val imageUrl = builder.build(
@@ -155,8 +163,11 @@ val imageUrl = builder.build(
 
 ### Dart
 
+Copy the Dart implementation from [dart/lib/](dart/lib/) and use it:
+
 ```dart
-import 'package:snapkit_image_url/snapkit_image_url.dart';
+// Copy the implementation files from dart/lib/
+// Then use it in your code:
 
 final builder = SnapkitImageURL('my-org');
 final imageUrl = builder.build(
@@ -172,11 +183,12 @@ final imageUrl = builder.build(
 
 ### PHP
 
+Copy the PHP implementation from [php/src/](php/src/) and use it:
+
 ```php
 <?php
-
-use Snapkit\ImageURL\SnapkitImageURL;
-use Snapkit\ImageURL\TransformOptions;
+// Copy the implementation files from php/src/
+// Then use it in your code:
 
 $builder = new SnapkitImageURL('my-org');
 $imageUrl = $builder->build(
@@ -225,17 +237,19 @@ All implementations support the following transform options:
 - ✅ **Production ready**: Used in production environments
 - ✅ **Multi-platform**: Web, Mobile (iOS/Android), and Desktop (macOS)
 
-## Installation
+## Usage
 
-See individual documentation for installation instructions:
+**These are reference implementations**. Copy the code examples from the language-specific directories into your project:
 
-- **TypeScript/JavaScript**: `pnpm add @snapkit/image-url-{typescript|javascript}`
-- **Next.js**: `pnpm add @snapkit/image-url-nextjs`
-- **Nuxt**: `pnpm add @snapkit/image-url-nuxt`
-- **Swift**: Add via Swift Package Manager
-- **Kotlin**: Add via Gradle
-- **Dart**: Add to `pubspec.yaml`
-- **PHP**: `composer require snapkit/image-url-php`
+- **TypeScript/JavaScript**: Copy code from [typescript/](typescript/) or [javascript/](javascript/)
+- **Next.js**: Copy code from [nextjs/](nextjs/)
+- **Nuxt**: Copy code from [nuxt/](nuxt/)
+- **Swift**: Copy code from [swift/](swift/)
+- **Kotlin**: Copy code from [kotlin/](kotlin/)
+- **Dart**: Copy code from [dart/](dart/)
+- **PHP**: Copy code from [php/](php/)
+
+See individual documentation for detailed implementation instructions.
 
 ## Testing
 

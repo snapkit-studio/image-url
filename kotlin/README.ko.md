@@ -1,21 +1,13 @@
 # Snapkit Image URL Builder - Kotlin
 
-Snapkit 이미지 프록시 URL을 생성하는 Kotlin(Android) 라이브러리입니다.
+Kotlin으로 작성된 Snapkit 이미지 프록시 URL 생성 라이브러리입니다.
+
+> **⚠️ 안내**: 배포된 패키지가 아닌 참고용 구현입니다. 아래 코드를 프로젝트에 복사하여 사용하세요.
 
 ## 요구사항
 
 - Android API 21+
 - Kotlin 1.9+
-
-## 설치
-
-### Gradle (Kotlin DSL)
-
-```kotlin
-dependencies {
-    implementation("dev.snapkit:snapkit-image-url-kotlin:1.0.0")
-}
-```
 
 ### Gradle (Groovy)
 

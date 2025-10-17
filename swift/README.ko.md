@@ -1,21 +1,13 @@
 # Snapkit Image URL Builder - Swift
 
-Snapkit 이미지 프록시 URL을 생성하는 Swift 라이브러리입니다.
+Swift로 작성된 Snapkit 이미지 프록시 URL 생성 라이브러리입니다.
+
+> **⚠️ 안내**: 배포된 패키지가 아닌 참고용 구현입니다. 아래 코드를 프로젝트에 복사하여 사용하세요.
 
 ## 요구사항
 
 - iOS 13.0+ / macOS 10.15+ / tvOS 13.0+ / watchOS 6.0+
 - Swift 5.9+
-
-## 설치
-
-### Swift Package Manager
-
-```swift
-dependencies: [
-    .package(url: "https://github.com/snapkit-studio/snapkit-image-url-swift.git", from: "1.0.0")
-]
-```
 
 또는 Xcode에서:
 1. File > Add Packages...

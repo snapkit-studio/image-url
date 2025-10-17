@@ -2,24 +2,18 @@
 
 [English](README.md) | [한국어](README.ko.md)
 
-Snapkit 이미지 프록시 URL을 생성하는 TypeScript 라이브러리입니다.
+TypeScript로 작성된 Snapkit 이미지 프록시 URL 생성 라이브러리입니다.
 
-## 설치
-
-```bash
-npm install @snapkit/image-url-typescript
-# or
-pnpm add @snapkit/image-url-typescript
-# or
-yarn add @snapkit/image-url-typescript
-```
+> **⚠️ 안내**: 배포된 패키지가 아닌 참고용 구현입니다. 아래 코드를 프로젝트에 복사하여 사용하세요.
 
 ## 사용법
 
 ### 기본 사용
 
+먼저 [src/buildSnapkitImageURL.ts](src/buildSnapkitImageURL.ts) 파일의 코드를 프로젝트에 복사한 후 사용하세요:
+
 ```typescript
-import { buildSnapkitImageURL } from '@snapkit/image-url-typescript';
+// buildSnapkitImageURL 함수와 타입을 복사한 후 사용
 
 const imageUrl = buildSnapkitImageURL({
   organizationName: 'my-org',
