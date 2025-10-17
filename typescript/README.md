@@ -2,18 +2,18 @@
 
 [English](README.md) | [한국어](README.ko.md)
 
-TypeScript로 작성된 Snapkit 이미지 프록시 URL 생성 라이브러리입니다.
+Snapkit image proxy URL builder library written in TypeScript.
 
-> **⚠️ 안내**: 배포된 패키지가 아닌 참고용 구현입니다. 아래 코드를 프로젝트에 복사하여 사용하세요.
+> **⚠️ Note**: This is a reference implementation, not a published package. Copy the code below into your project.
 
-## 사용법
+## Usage
 
-### 기본 사용
+### Basic Usage
 
-먼저 [src/buildSnapkitImageURL.ts](src/buildSnapkitImageURL.ts) 파일의 코드를 프로젝트에 복사한 후 사용하세요:
+First, copy the code from [src/buildSnapkitImageURL.ts](src/buildSnapkitImageURL.ts) into your project:
 
 ```typescript
-// buildSnapkitImageURL 함수와 타입을 복사한 후 사용
+// Use the copied buildSnapkitImageURL function and types
 
 const imageUrl = buildSnapkitImageURL({
   organizationName: "my-org",
@@ -22,7 +22,7 @@ const imageUrl = buildSnapkitImageURL({
 // → https://my-org.snapkit.dev/image?url=https%3A%2F%2Fcdn.cloudfront.net%2Fimage.jpg
 ```
 
-### 이미지 변환 옵션
+### Image Transform Options
 
 ```typescript
 const imageUrl = buildSnapkitImageURL({
@@ -38,7 +38,7 @@ const imageUrl = buildSnapkitImageURL({
 // → https://my-org.snapkit.dev/image?url=...&transform=w:300,h:200,fit:cover,format:webp
 ```
 
-### 고급 변환
+### Advanced Transforms
 
 ```typescript
 const imageUrl = buildSnapkitImageURL({
@@ -71,49 +71,49 @@ The `url` parameter is **optional** and should only be used when you need to con
 - **Cost**: May increase image response time and CDN costs
 - **Recommendation**: Use only when unavoidable
 
-## Transform 옵션
+## Transform Options
 
-| 옵션        | 타입                                                      | 설명                         |
+| Option      | Type                                                      | Description                  |
 | ----------- | --------------------------------------------------------- | ---------------------------- |
-| `w`         | `number`                                                  | 이미지 너비 (픽셀)           |
-| `h`         | `number`                                                  | 이미지 높이 (픽셀)           |
-| `fit`       | `'contain' \| 'cover' \| 'fill' \| 'inside' \| 'outside'` | 리사이즈 방식                |
-| `format`    | `'jpeg' \| 'png' \| 'webp' \| 'avif'`                     | 출력 포맷                    |
-| `rotation`  | `number`                                                  | 회전 각도 (degrees)          |
-| `blur`      | `number`                                                  | 블러 강도 (0.3-1000)         |
-| `grayscale` | `boolean`                                                 | 흑백 변환                    |
-| `flip`      | `boolean`                                                 | 상하 반전                    |
-| `flop`      | `boolean`                                                 | 좌우 반전                    |
-| `extract`   | `{ x, y, width, height }`                                 | 영역 추출                    |
+| `w`         | `number`                                                  | Image width (pixels)         |
+| `h`         | `number`                                                  | Image height (pixels)        |
+| `fit`       | `'contain' \| 'cover' \| 'fill' \| 'inside' \| 'outside'` | Resize method                |
+| `format`    | `'jpeg' \| 'png' \| 'webp' \| 'avif'`                     | Output format                |
+| `rotation`  | `number`                                                  | Rotation angle (degrees)     |
+| `blur`      | `number`                                                  | Blur intensity (0.3-1000)    |
+| `grayscale` | `boolean`                                                 | Convert to grayscale         |
+| `flip`      | `boolean`                                                 | Flip vertically              |
+| `flop`      | `boolean`                                                 | Flip horizontally            |
+| `extract`   | `{ x, y, width, height }`                                 | Extract region               |
 | `dpr`       | `number`                                                  | Device Pixel Ratio (1.0-4.0) |
 
-## 개발
+## Development
 
-### 테스트 실행
+### Run Tests
 
 ```bash
-# 단위 테스트
+# Unit tests
 pnpm test
 
-# Watch 모드
+# Watch mode
 pnpm test:watch
 
-# 커버리지
+# Coverage
 pnpm test:coverage
 ```
 
-### 빌드
+### Build
 
 ```bash
 pnpm build
 ```
 
-### 타입 체크
+### Type Check
 
 ```bash
 pnpm type-check
 ```
 
-## 라이선스
+## License
 
 MIT

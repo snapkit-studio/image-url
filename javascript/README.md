@@ -2,18 +2,18 @@
 
 [English](README.md) | [한국어](README.ko.md)
 
-JavaScript로 작성된 Snapkit 이미지 프록시 URL 생성 라이브러리입니다.
+Snapkit image proxy URL builder library written in JavaScript.
 
-> **⚠️ 안내**: 배포된 패키지가 아닌 참고용 구현입니다. 아래 코드를 프로젝트에 복사하여 사용하세요.
+> **⚠️ Note**: This is a reference implementation, not a published package. Copy the code below into your project.
 
-## 사용법
+## Usage
 
-### 기본 사용
+### Basic Usage
 
-먼저 [src/buildSnapkitImageURL.js](src/buildSnapkitImageURL.js) 파일의 코드를 프로젝트에 복사한 후 사용하세요:
+First, copy the code from [src/buildSnapkitImageURL.js](src/buildSnapkitImageURL.js) into your project:
 
 ```javascript
-// buildSnapkitImageURL 함수를 복사한 후 사용
+// Use the copied buildSnapkitImageURL function
 
 const imageUrl = buildSnapkitImageURL({
   organizationName: "my-org",
@@ -22,7 +22,7 @@ const imageUrl = buildSnapkitImageURL({
 // → https://my-org.snapkit.dev/image?url=https%3A%2F%2Fcdn.cloudfront.net%2Fimage.jpg
 ```
 
-### 이미지 변환 옵션
+### Image Transform Options
 
 ```javascript
 const imageUrl = buildSnapkitImageURL({
@@ -38,7 +38,7 @@ const imageUrl = buildSnapkitImageURL({
 // → https://my-org.snapkit.dev/image?url=...&transform=w:300,h:200,fit:cover,format:webp
 ```
 
-### 고급 변환
+### Advanced Transforms
 
 ```javascript
 const imageUrl = buildSnapkitImageURL({
@@ -71,37 +71,37 @@ The `url` parameter is **optional** and should only be used when you need to con
 - **Cost**: May increase image response time and CDN costs
 - **Recommendation**: Use only when unavoidable
 
-## Transform 옵션
+## Transform Options
 
-| 옵션        | 타입      | 설명                                                            |
-| ----------- | --------- | --------------------------------------------------------------- |
-| `w`         | `number`  | 이미지 너비 (픽셀)                                              |
-| `h`         | `number`  | 이미지 높이 (픽셀)                                              |
-| `fit`       | `string`  | 리사이즈 방식 ('contain', 'cover', 'fill', 'inside', 'outside') |
-| `format`    | `string`  | 출력 포맷 ('jpeg', 'png', 'webp', 'avif')                       |
-| `rotation`  | `number`  | 회전 각도 (degrees)                                             |
-| `blur`      | `number`  | 블러 강도 (0.3-1000)                                            |
-| `grayscale` | `boolean` | 흑백 변환                                                       |
-| `flip`      | `boolean` | 상하 반전                                                       |
-| `flop`      | `boolean` | 좌우 반전                                                       |
-| `extract`   | `object`  | 영역 추출 `{ x, y, width, height }`                             |
-| `dpr`       | `number`  | Device Pixel Ratio (1.0-4.0)                                    |
+| Option      | Type      | Description                                                    |
+| ----------- | --------- | -------------------------------------------------------------- |
+| `w`         | `number`  | Image width (pixels)                                           |
+| `h`         | `number`  | Image height (pixels)                                          |
+| `fit`       | `string`  | Resize method ('contain', 'cover', 'fill', 'inside', 'outside') |
+| `format`    | `string`  | Output format ('jpeg', 'png', 'webp', 'avif')                  |
+| `rotation`  | `number`  | Rotation angle (degrees)                                       |
+| `blur`      | `number`  | Blur intensity (0.3-1000)                                      |
+| `grayscale` | `boolean` | Convert to grayscale                                           |
+| `flip`      | `boolean` | Flip vertically                                                |
+| `flop`      | `boolean` | Flip horizontally                                              |
+| `extract`   | `object`  | Extract region `{ x, y, width, height }`                       |
+| `dpr`       | `number`  | Device Pixel Ratio (1.0-4.0)                                   |
 
-## 개발
+## Development
 
-### 테스트 실행
+### Run Tests
 
 ```bash
-# 단위 테스트
+# Unit tests
 pnpm test
 
-# Watch 모드
+# Watch mode
 pnpm test:watch
 
-# 커버리지
+# Coverage
 pnpm test:coverage
 ```
 
-## 라이선스
+## License
 
 MIT

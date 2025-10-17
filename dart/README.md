@@ -2,26 +2,26 @@
 
 [English](README.md) | [한국어](README.ko.md)
 
-Dart로 작성된 Snapkit 이미지 프록시 URL 생성 라이브러리입니다.
+Snapkit image proxy URL builder library written in Dart.
 
-> **⚠️ 안내**: 배포된 패키지가 아닌 참고용 구현입니다. 아래 코드를 프로젝트에 복사하여 사용하세요.
+> **⚠️ Note**: This is a reference implementation, not a published package. Copy the code below into your project.
 
-## 요구사항
+## Requirements
 
 - Dart 3.0+
-- Flutter 3.0+ (Flutter 프로젝트에서 사용 시)
+- Flutter 3.0+ (when using with Flutter projects)
 
-설치:
+Installation:
 
 ```bash
 dart pub get
-# 또는 Flutter 프로젝트
+# Or for Flutter projects
 flutter pub get
 ```
 
-## 사용법
+## Usage
 
-### 기본 사용
+### Basic Usage
 
 ```dart
 import 'package:snapkit_image_url/snapkit_image_url.dart';
@@ -31,7 +31,7 @@ final imageUrl = builder.build(url: 'https://cdn.cloudfront.net/image.jpg');
 // → https://my-org.snapkit.dev/image?url=https%3A%2F%2Fcdn.cloudfront.net%2Fimage.jpg
 ```
 
-### 이미지 변환 옵션
+### Image Transform Options
 
 ```dart
 final imageUrl = builder.build(
@@ -45,7 +45,7 @@ final imageUrl = builder.build(
 );
 ```
 
-### 고급 변환
+### Advanced Transforms
 
 ```dart
 final extract = Extract(x: 10, y: 20, width: 100, height: 150);
@@ -66,7 +66,7 @@ final imageUrl = builder.build(
 );
 ```
 
-### Flutter Image 위젯과 함께 사용
+### Using with Flutter Image Widget
 
 ```dart
 import 'package:flutter/material.dart';
@@ -108,7 +108,7 @@ class MyWidget extends StatelessWidget {
 }
 ```
 
-### cached_network_image와 함께 사용
+### Using with cached_network_image
 
 ```dart
 import 'package:cached_network_image/cached_network_image.dart';
@@ -146,30 +146,30 @@ The `url` parameter is **optional** and should only be used when you need to con
 - **Cost**: May increase image response time and CDN costs
 - **Recommendation**: Use only when unavoidable
 
-## Transform 옵션
+## Transform Options
 
-| 옵션        | 타입       | 설명                                                  |
-| ----------- | ---------- | ----------------------------------------------------- |
-| `w`         | `int?`     | 이미지 너비 (픽셀)                                    |
-| `h`         | `int?`     | 이미지 높이 (픽셀)                                    |
-| `fit`       | `Fit?`     | 리사이즈 방식 (contain, cover, fill, inside, outside) |
-| `format`    | `Format?`  | 출력 포맷 (jpeg, png, webp, avif)                     |
-| `rotation`  | `int?`     | 회전 각도 (degrees)                                   |
-| `blur`      | `int?`     | 블러 강도 (0.3-1000)                                  |
-| `grayscale` | `bool?`    | 흑백 변환                                             |
-| `flip`      | `bool?`    | 상하 반전                                             |
-| `flop`      | `bool?`    | 좌우 반전                                             |
-| `extract`   | `Extract?` | 영역 추출                                             |
-| `dpr`       | `double?`  | Device Pixel Ratio (1.0-4.0)                          |
+| Option      | Type       | Description                                       |
+| ----------- | ---------- | ------------------------------------------------- |
+| `w`         | `int?`     | Image width (pixels)                              |
+| `h`         | `int?`     | Image height (pixels)                             |
+| `fit`       | `Fit?`     | Resize method (contain, cover, fill, inside, outside) |
+| `format`    | `Format?`  | Output format (jpeg, png, webp, avif)             |
+| `rotation`  | `int?`     | Rotation angle (degrees)                          |
+| `blur`      | `int?`     | Blur intensity (0.3-1000)                         |
+| `grayscale` | `bool?`    | Convert to grayscale                              |
+| `flip`      | `bool?`    | Flip vertically                                   |
+| `flop`      | `bool?`    | Flip horizontally                                 |
+| `extract`   | `Extract?` | Extract region                                    |
+| `dpr`       | `double?`  | Device Pixel Ratio (1.0-4.0)                      |
 
-## 개발
+## Development
 
-### 테스트 실행
+### Run Tests
 
 ```bash
 dart test
 ```
 
-## 라이선스
+## License
 
 MIT

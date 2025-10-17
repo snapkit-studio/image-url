@@ -2,23 +2,23 @@
 
 [English](README.md) | [한국어](README.ko.md)
 
-Swift로 작성된 Snapkit 이미지 프록시 URL 생성 라이브러리입니다.
+Snapkit image proxy URL builder library written in Swift.
 
-> **⚠️ 안내**: 배포된 패키지가 아닌 참고용 구현입니다. 아래 코드를 프로젝트에 복사하여 사용하세요.
+> **⚠️ Note**: This is a reference implementation, not a published package. Copy the code below into your project.
 
-## 요구사항
+## Requirements
 
 - iOS 13.0+ / macOS 10.15+ / tvOS 13.0+ / watchOS 6.0+
 - Swift 5.9+
 
-또는 Xcode에서:
+Or in Xcode:
 
 1. File > Add Packages...
-2. Repository URL 입력: `https://github.com/snapkit-studio/snapkit-image-url-swift.git`
+2. Enter Repository URL: `https://github.com/snapkit-studio/snapkit-image-url-swift.git`
 
-## 사용법
+## Usage
 
-### 기본 사용
+### Basic Usage
 
 ```swift
 import SnapkitImageURL
@@ -28,7 +28,7 @@ let imageURL = builder.build(url: "https://cdn.cloudfront.net/image.jpg")
 // → https://my-org.snapkit.dev/image?url=https%3A%2F%2Fcdn.cloudfront.net%2Fimage.jpg
 ```
 
-### 이미지 변환 옵션
+### Image Transform Options
 
 ```swift
 let imageURL = builder.build(
@@ -43,7 +43,7 @@ let imageURL = builder.build(
 // → https://my-org.snapkit.dev/image?url=...&transform=w:300,h:200,fit:cover,format:webp
 ```
 
-### 고급 변환
+### Advanced Transforms
 
 ```swift
 let extract = TransformOptions.Extract(x: 10, y: 20, width: 100, height: 150)
@@ -64,7 +64,7 @@ let imageURL = builder.build(
 )
 ```
 
-### UIImageView/NSImageView와 함께 사용
+### Using with UIImageView/NSImageView
 
 ```swift
 // iOS/tvOS
@@ -78,7 +78,7 @@ let imageURL = builder.build(
 )
 
 if let url = imageURL {
-    // URLSession으로 이미지 로드
+    // Load image with URLSession
     URLSession.shared.dataTask(with: url) { data, response, error in
         if let data = data, let image = UIImage(data: data) {
             DispatchQueue.main.async {
@@ -111,7 +111,7 @@ if let url = imageURL {
 }
 ```
 
-### SwiftUI와 함께 사용
+### Using with SwiftUI
 
 ```swift
 import SwiftUI
@@ -164,40 +164,40 @@ The `url` parameter is **optional** and should only be used when you need to con
 - **Cost**: May increase image response time and CDN costs
 - **Recommendation**: Use only when unavoidable
 
-## Transform 옵션
+## Transform Options
 
-| 옵션        | 타입       | 설명                                                       |
-| ----------- | ---------- | ---------------------------------------------------------- |
-| `w`         | `Int?`     | 이미지 너비 (픽셀)                                         |
-| `h`         | `Int?`     | 이미지 높이 (픽셀)                                         |
-| `fit`       | `Fit?`     | 리사이즈 방식 (.contain, .cover, .fill, .inside, .outside) |
-| `format`    | `Format?`  | 출력 포맷 (.jpeg, .png, .webp, .avif)                      |
-| `rotation`  | `Int?`     | 회전 각도 (degrees)                                        |
-| `blur`      | `Int?`     | 블러 강도 (0.3-1000)                                       |
-| `grayscale` | `Bool?`    | 흑백 변환                                                  |
-| `flip`      | `Bool?`    | 상하 반전                                                  |
-| `flop`      | `Bool?`    | 좌우 반전                                                  |
-| `extract`   | `Extract?` | 영역 추출                                                  |
-| `dpr`       | `Double?`  | Device Pixel Ratio (1.0-4.0)                               |
+| Option      | Type       | Description                                     |
+| ----------- | ---------- | ----------------------------------------------- |
+| `w`         | `Int?`     | Image width (pixels)                            |
+| `h`         | `Int?`     | Image height (pixels)                           |
+| `fit`       | `Fit?`     | Resize method (.contain, .cover, .fill, .inside, .outside) |
+| `format`    | `Format?`  | Output format (.jpeg, .png, .webp, .avif)       |
+| `rotation`  | `Int?`     | Rotation angle (degrees)                        |
+| `blur`      | `Int?`     | Blur intensity (0.3-1000)                       |
+| `grayscale` | `Bool?`    | Convert to grayscale                            |
+| `flip`      | `Bool?`    | Flip vertically                                 |
+| `flop`      | `Bool?`    | Flip horizontally                               |
+| `extract`   | `Extract?` | Extract region                                  |
+| `dpr`       | `Double?`  | Device Pixel Ratio (1.0-4.0)                    |
 
-## 개발
+## Development
 
-### 테스트 실행
+### Run Tests
 
 ```bash
-# 모든 플랫폼에서 테스트
+# Test on all platforms
 swift test
 
-# 특정 플랫폼
+# Specific platform
 swift test --filter SnapkitImageURLTests
 ```
 
-### 빌드
+### Build
 
 ```bash
 swift build
 ```
 
-## 라이선스
+## License
 
 MIT

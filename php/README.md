@@ -2,13 +2,13 @@
 
 [English](README.md) | [한국어](README.ko.md)
 
-Snapkit 이미지 프록시 URL을 생성하는 PHP 라이브러리입니다.
+PHP library for building Snapkit image proxy URLs.
 
-## 요구사항
+## Requirements
 
 - PHP 8.1+
 
-## 설치
+## Installation
 
 ### Composer
 
@@ -16,9 +16,9 @@ Snapkit 이미지 프록시 URL을 생성하는 PHP 라이브러리입니다.
 composer require snapkit/image-url-php
 ```
 
-## 사용법
+## Usage
 
-### 기본 사용
+### Basic Usage
 
 ```php
 <?php
@@ -30,7 +30,7 @@ $imageUrl = $builder->build('https://cdn.cloudfront.net/image.jpg');
 // → https://my-org.snapkit.dev/image?url=https%3A%2F%2Fcdn.cloudfront.net%2Fimage.jpg
 ```
 
-### 이미지 변환 옵션
+### Image Transform Options
 
 ```php
 use Snapkit\ImageURL\SnapkitImageURL;
@@ -49,7 +49,7 @@ $imageUrl = $builder->build(
 // → https://my-org.snapkit.dev/image?url=...&transform=w:300,h:200,fit:cover,format:webp
 ```
 
-### 고급 변환
+### Advanced Transforms
 
 ```php
 use Snapkit\ImageURL\SnapkitImageURL;
@@ -83,7 +83,7 @@ The `url` parameter is **optional** and should only be used when you need to con
 - **Cost**: May increase image response time and CDN costs
 - **Recommendation**: Use only when unavoidable
 
-### Laravel에서 사용
+### Using with Laravel
 
 ```php
 // app/Services/ImageService.php
@@ -116,7 +116,7 @@ return [
 // .env
 SNAPKIT_ORG=my-org
 
-// Controller에서 사용
+// Using in Controller
 use App\Services\ImageService;
 
 class ProductController extends Controller
@@ -137,14 +137,14 @@ class ProductController extends Controller
     }
 }
 
-// Blade 템플릿에서 사용
+// Using in Blade template
 <img src="{{ $imageUrl }}" alt="{{ $product->name }}">
 ```
 
-### WordPress에서 사용
+### Using with WordPress
 
 ```php
-// functions.php 또는 플러그인 파일
+// functions.php or plugin file
 
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -164,7 +164,7 @@ function get_snapkit_image_url($url, $options = [])
     return $builder->build($url, $transform);
 }
 
-// 사용 예시
+// Usage example
 $imageUrl = get_snapkit_image_url(
     get_the_post_thumbnail_url(),
     [
@@ -178,36 +178,36 @@ $imageUrl = get_snapkit_image_url(
 echo '<img src="' . esc_url($imageUrl) . '" alt="' . esc_attr(get_the_title()) . '">';
 ```
 
-## Transform 옵션
+## Transform Options
 
-| 옵션        | 타입            | 설명                                                            |
-| ----------- | --------------- | --------------------------------------------------------------- |
-| `w`         | `int\|null`     | 이미지 너비 (픽셀)                                              |
-| `h`         | `int\|null`     | 이미지 높이 (픽셀)                                              |
-| `fit`       | `string\|null`  | 리사이즈 방식 ('contain', 'cover', 'fill', 'inside', 'outside') |
-| `format`    | `string\|null`  | 출력 포맷 ('jpeg', 'png', 'webp', 'avif')                       |
-| `rotation`  | `int\|null`     | 회전 각도 (degrees)                                             |
-| `blur`      | `int\|null`     | 블러 강도 (0.3-1000)                                            |
-| `grayscale` | `bool\|null`    | 흑백 변환                                                       |
-| `flip`      | `bool\|null`    | 상하 반전                                                       |
-| `flop`      | `bool\|null`    | 좌우 반전                                                       |
-| `extract`   | `Extract\|null` | 영역 추출                                                       |
-| `dpr`       | `float\|null`   | Device Pixel Ratio (1.0-4.0)                                    |
+| Option      | Type            | Description                                                    |
+| ----------- | --------------- | -------------------------------------------------------------- |
+| `w`         | `int\|null`     | Image width (pixels)                                           |
+| `h`         | `int\|null`     | Image height (pixels)                                          |
+| `fit`       | `string\|null`  | Resize method ('contain', 'cover', 'fill', 'inside', 'outside') |
+| `format`    | `string\|null`  | Output format ('jpeg', 'png', 'webp', 'avif')                  |
+| `rotation`  | `int\|null`     | Rotation angle (degrees)                                       |
+| `blur`      | `int\|null`     | Blur intensity (0.3-1000)                                      |
+| `grayscale` | `bool\|null`    | Convert to grayscale                                           |
+| `flip`      | `bool\|null`    | Flip vertically                                                |
+| `flop`      | `bool\|null`    | Flip horizontally                                              |
+| `extract`   | `Extract\|null` | Extract region                                                 |
+| `dpr`       | `float\|null`   | Device Pixel Ratio (1.0-4.0)                                   |
 
-## 개발
+## Development
 
-### 테스트 실행
+### Run Tests
 
 ```bash
 composer test
 ```
 
-### 의존성 설치
+### Install Dependencies
 
 ```bash
 composer install
 ```
 
-## 라이선스
+## License
 
 MIT
