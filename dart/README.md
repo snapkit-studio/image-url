@@ -6,6 +6,16 @@ Snapkit image proxy URL builder library written in Dart.
 
 > **⚠️ Note**: This is a reference implementation, not a published package. Copy the code below into your project.
 
+## Full Implementation Code
+
+### Step 1: Copy the code
+
+The complete Dart implementation can be found in the [lib/snapkit_image_url.dart](lib/snapkit_image_url.dart) file.
+
+### Step 2: Create and paste file in your project
+
+Save the copied code as `snapkit_image_url.dart` file in your project.
+
 ## Requirements
 
 - Dart 3.0+

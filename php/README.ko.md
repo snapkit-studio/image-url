@@ -4,6 +4,16 @@ PHP로 작성된 Snapkit 이미지 프록시 URL 생성 라이브러리입니다
 
 > **⚠️ 안내**: 배포된 패키지가 아닌 참고용 구현입니다. 아래 코드를 프로젝트에 복사하여 사용하세요.
 
+## 전체 구현 코드
+
+### Step 1: 코드 복사
+
+전체 PHP 구현 코드는 [src/SnapkitImageURL.php](src/SnapkitImageURL.php) 파일에서 확인할 수 있습니다.
+
+### Step 2: 프로젝트 폴더에 파일 생성 및 붙여넣기
+
+복사한 코드를 프로젝트에 `SnapkitImageURL.php` 파일로 저장합니다.
+
 ## 요구사항
 
 - PHP 8.1+

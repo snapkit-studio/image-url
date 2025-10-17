@@ -4,6 +4,18 @@
 
 PHP library for building Snapkit image proxy URLs.
 
+> **⚠️ Note**: This is a reference implementation, not a published package. Copy the code below into your project.
+
+## Full Implementation Code
+
+### Step 1: Copy the code
+
+The complete PHP implementation can be found in the [src/SnapkitImageURL.php](src/SnapkitImageURL.php) file.
+
+### Step 2: Create and paste file in your project
+
+Save the copied code as `SnapkitImageURL.php` file in your project.
+
 ## Requirements
 
 - PHP 8.1+
