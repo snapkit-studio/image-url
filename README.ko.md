@@ -195,15 +195,6 @@ $imageUrl = $builder->build(
 | `extract`   | `object`  | 영역 추출 `{x, y, width, height}`                              |
 | `dpr`       | `number`  | Device Pixel Ratio (1.0-4.0)                                   |
 
-## 기능
-
-- ✅ **타입 안전성**: TypeScript/Swift/Kotlin/Dart 완전한 타입 정의
-- ✅ **프레임워크 통합**: Next.js를 위한 네이티브 로더
-- ✅ **URL 인코딩**: 모든 파라미터에 대한 자동 URL 인코딩
-- ✅ **포괄적인 테스트**: 각 구현별 19개 이상의 단위 테스트
-- ✅ **프로덕션 준비**: 프로덕션 환경에서 사용 중
-- ✅ **멀티 플랫폼**: 웹, 모바일(iOS/Android), 데스크톱(macOS)
-
 ## 사용법
 
 **참고용 구현 예제입니다**. 각 언어별 디렉토리의 코드 예제를 프로젝트에 복사하여 사용하세요:

@@ -195,15 +195,6 @@ All implementations support the following transform options:
 | `extract`   | `object`  | Extract region `{x, y, width, height}`                       |
 | `dpr`       | `number`  | Device Pixel Ratio (1.0-4.0)                                 |
 
-## Features
-
-- ✅ **Type-safe**: Full TypeScript/Swift/Kotlin/Dart type definitions
-- ✅ **Framework integration**: Native loader for Next.js
-- ✅ **URL encoding**: Automatic URL encoding for all parameters
-- ✅ **Comprehensive testing**: 19+ unit tests for each implementation
-- ✅ **Production ready**: Used in production environments
-- ✅ **Multi-platform**: Web, Mobile (iOS/Android), and Desktop (macOS)
-
 ## Usage
 
 **These are reference implementations**. Copy the code examples from the language-specific directories into your project:
