@@ -16,8 +16,8 @@ TypeScript로 작성된 Snapkit 이미지 프록시 URL 생성 라이브러리�
 // buildSnapkitImageURL 함수와 타입을 복사한 후 사용
 
 const imageUrl = buildSnapkitImageURL({
-  organizationName: 'my-org',
-  url: 'https://cdn.cloudfront.net/image.jpg',
+  organizationName: "my-org",
+  url: "https://cdn.cloudfront.net/image.jpg",
 });
 // → https://my-org.snapkit.dev/image?url=https%3A%2F%2Fcdn.cloudfront.net%2Fimage.jpg
 ```
@@ -26,13 +26,13 @@ const imageUrl = buildSnapkitImageURL({
 
 ```typescript
 const imageUrl = buildSnapkitImageURL({
-  organizationName: 'my-org',
-  url: 'https://cdn.cloudfront.net/image.jpg',
+  organizationName: "my-org",
+  url: "https://cdn.cloudfront.net/image.jpg",
   transform: {
     w: 300,
     h: 200,
-    fit: 'cover',
-    format: 'webp',
+    fit: "cover",
+    format: "webp",
   },
 });
 // → https://my-org.snapkit.dev/image?url=...&transform=w:300,h:200,fit:cover,format:webp
@@ -42,13 +42,13 @@ const imageUrl = buildSnapkitImageURL({
 
 ```typescript
 const imageUrl = buildSnapkitImageURL({
-  organizationName: 'my-org',
-  url: 'https://cdn.cloudfront.net/image.jpg',
+  organizationName: "my-org",
+  url: "https://cdn.cloudfront.net/image.jpg",
   transform: {
     w: 400,
     h: 300,
-    fit: 'cover',
-    format: 'webp',
+    fit: "cover",
+    format: "webp",
     rotation: 90,
     blur: 5,
     grayscale: true,
@@ -73,19 +73,19 @@ The `url` parameter is **optional** and should only be used when you need to con
 
 ## Transform 옵션
 
-| 옵션 | 타입 | 설명 |
-|------|------|------|
-| `w` | `number` | 이미지 너비 (픽셀) |
-| `h` | `number` | 이미지 높이 (픽셀) |
-| `fit` | `'contain' \| 'cover' \| 'fill' \| 'inside' \| 'outside'` | 리사이즈 방식 |
-| `format` | `'jpeg' \| 'png' \| 'webp' \| 'avif'` | 출력 포맷 |
-| `rotation` | `number` | 회전 각도 (degrees) |
-| `blur` | `number` | 블러 강도 (0.3-1000) |
-| `grayscale` | `boolean` | 흑백 변환 |
-| `flip` | `boolean` | 상하 반전 |
-| `flop` | `boolean` | 좌우 반전 |
-| `extract` | `{ x, y, width, height }` | 영역 추출 |
-| `dpr` | `number` | Device Pixel Ratio (1.0-4.0) |
+| 옵션        | 타입                                                      | 설명                         |
+| ----------- | --------------------------------------------------------- | ---------------------------- |
+| `w`         | `number`                                                  | 이미지 너비 (픽셀)           |
+| `h`         | `number`                                                  | 이미지 높이 (픽셀)           |
+| `fit`       | `'contain' \| 'cover' \| 'fill' \| 'inside' \| 'outside'` | 리사이즈 방식                |
+| `format`    | `'jpeg' \| 'png' \| 'webp' \| 'avif'`                     | 출력 포맷                    |
+| `rotation`  | `number`                                                  | 회전 각도 (degrees)          |
+| `blur`      | `number`                                                  | 블러 강도 (0.3-1000)         |
+| `grayscale` | `boolean`                                                 | 흑백 변환                    |
+| `flip`      | `boolean`                                                 | 상하 반전                    |
+| `flop`      | `boolean`                                                 | 좌우 반전                    |
+| `extract`   | `{ x, y, width, height }`                                 | 영역 추출                    |
+| `dpr`       | `number`                                                  | Device Pixel Ratio (1.0-4.0) |
 
 ## 개발
 

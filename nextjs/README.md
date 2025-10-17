@@ -24,9 +24,9 @@ export interface TransformOptions {
   /** Image height (pixels) */
   h?: number;
   /** Resize mode */
-  fit?: 'contain' | 'cover' | 'fill' | 'inside' | 'outside';
+  fit?: "contain" | "cover" | "fill" | "inside" | "outside";
   /** Output format */
-  format?: 'jpeg' | 'png' | 'webp' | 'avif';
+  format?: "jpeg" | "png" | "webp" | "avif";
   /** Rotation angle (degrees) */
   rotation?: number;
   /** Blur strength (0.3-1000) */
@@ -73,15 +73,16 @@ function buildTransformString(options: TransformOptions): string {
   if (options.h !== undefined) parts.push(`h:${options.h}`);
   if (options.fit) parts.push(`fit:${options.fit}`);
   if (options.format) parts.push(`format:${options.format}`);
-  if (options.rotation !== undefined) parts.push(`rotation:${options.rotation}`);
+  if (options.rotation !== undefined)
+    parts.push(`rotation:${options.rotation}`);
   if (options.blur !== undefined) parts.push(`blur:${options.blur}`);
   if (options.dpr !== undefined) parts.push(`dpr:${options.dpr}`);
   if (options.quality !== undefined) parts.push(`quality:${options.quality}`);
 
   // Boolean parameters (key only, no value)
-  if (options.grayscale) parts.push('grayscale');
-  if (options.flip) parts.push('flip');
-  if (options.flop) parts.push('flop');
+  if (options.grayscale) parts.push("grayscale");
+  if (options.flip) parts.push("flip");
+  if (options.flop) parts.push("flop");
 
   // extract parameter (x-y-width-height)
   if (options.extract) {
@@ -89,13 +90,15 @@ function buildTransformString(options: TransformOptions): string {
     parts.push(`extract:${x}-${y}-${width}-${height}`);
   }
 
-  return parts.join(',');
+  return parts.join(",");
 }
 
 /**
  * Build Snapkit image proxy URL
  */
-export function buildSnapkitImageURL(params: BuildSnapkitImageURLParams): string {
+export function buildSnapkitImageURL(
+  params: BuildSnapkitImageURLParams,
+): string {
   const { organizationName, url, transform } = params;
 
   // Compose base URL
@@ -103,13 +106,13 @@ export function buildSnapkitImageURL(params: BuildSnapkitImageURLParams): string
 
   // Compose query parameters with URLSearchParams
   const searchParams = new URLSearchParams();
-  searchParams.set('url', url);
+  searchParams.set("url", url);
 
   // Add transform options if present
   if (transform) {
     const transformString = buildTransformString(transform);
     if (transformString) {
-      searchParams.set('transform', transformString);
+      searchParams.set("transform", transformString);
     }
   }
 
@@ -123,7 +126,7 @@ Create a loader function for Next.js Image Component:
 
 ```ts
 // lib/snapkit-loader.ts
-import { buildSnapkitImageURL } from './snapkit-image-url';
+import { buildSnapkitImageURL } from "./snapkit-image-url";
 
 export default function snapkitLoader({
   src,
@@ -135,12 +138,12 @@ export default function snapkitLoader({
   quality?: number;
 }): string {
   return buildSnapkitImageURL({
-    organizationName: process.env.NEXT_PUBLIC_SNAPKIT_ORG || 'my-org',
+    organizationName: process.env.NEXT_PUBLIC_SNAPKIT_ORG || "my-org",
     url: src,
     transform: {
       w: width,
       quality,
-      format: 'webp',
+      format: "webp",
     },
   });
 }
@@ -156,8 +159,8 @@ Configure the loader globally in your Next.js config:
 // next.config.js
 module.exports = {
   images: {
-    loader: 'custom',
-    loaderFile: './lib/snapkit-loader.ts',
+    loader: "custom",
+    loaderFile: "./lib/snapkit-loader.ts",
   },
 };
 ```
@@ -165,7 +168,7 @@ module.exports = {
 Then use the Image component normally:
 
 ```tsx
-import Image from 'next/image';
+import Image from "next/image";
 
 export function MyComponent() {
   return (
@@ -184,8 +187,8 @@ export function MyComponent() {
 Pass the loader directly to individual Image components:
 
 ```tsx
-import Image from 'next/image';
-import snapkitLoader from '@/lib/snapkit-loader';
+import Image from "next/image";
+import snapkitLoader from "@/lib/snapkit-loader";
 
 export function MyComponent() {
   return (
@@ -205,18 +208,18 @@ export function MyComponent() {
 Create custom loaders for different use cases:
 
 ```tsx
-import Image from 'next/image';
-import { buildSnapkitImageURL } from '@/lib/snapkit-image-url';
+import Image from "next/image";
+import { buildSnapkitImageURL } from "@/lib/snapkit-image-url";
 
 const highQualityLoader = ({ src, width }: { src: string; width: number }) => {
   return buildSnapkitImageURL({
-    organizationName: 'my-org',
+    organizationName: "my-org",
     url: src,
     transform: {
       w: width,
-      format: 'avif',
+      format: "avif",
       quality: 90,
-      fit: 'cover',
+      fit: "cover",
     },
   });
 };
@@ -245,27 +248,27 @@ The `url` parameter is **optional** and should only be used when you need to con
 
 ## Transform Options
 
-| Option | Type | Description |
-|--------|------|-------------|
-| `w` | `number` | Image width (pixels) |
-| `h` | `number` | Image height (pixels) |
-| `fit` | `'contain' \| 'cover' \| 'fill' \| 'inside' \| 'outside'` | Resize mode |
-| `format` | `'jpeg' \| 'png' \| 'webp' \| 'avif'` | Output format (default: webp) |
-| `rotation` | `number` | Rotation angle (degrees) |
-| `blur` | `number` | Blur intensity (0.3-1000) |
-| `grayscale` | `boolean` | Convert to grayscale |
-| `flip` | `boolean` | Flip vertically |
-| `flop` | `boolean` | Flip horizontally |
-| `extract` | `{ x, y, width, height }` | Extract region |
-| `dpr` | `number` | Device Pixel Ratio (1.0-4.0) |
-| `quality` | `number` | Image quality (1-100) |
+| Option      | Type                                                      | Description                   |
+| ----------- | --------------------------------------------------------- | ----------------------------- |
+| `w`         | `number`                                                  | Image width (pixels)          |
+| `h`         | `number`                                                  | Image height (pixels)         |
+| `fit`       | `'contain' \| 'cover' \| 'fill' \| 'inside' \| 'outside'` | Resize mode                   |
+| `format`    | `'jpeg' \| 'png' \| 'webp' \| 'avif'`                     | Output format (default: webp) |
+| `rotation`  | `number`                                                  | Rotation angle (degrees)      |
+| `blur`      | `number`                                                  | Blur intensity (0.3-1000)     |
+| `grayscale` | `boolean`                                                 | Convert to grayscale          |
+| `flip`      | `boolean`                                                 | Flip vertically               |
+| `flop`      | `boolean`                                                 | Flip horizontally             |
+| `extract`   | `{ x, y, width, height }`                                 | Extract region                |
+| `dpr`       | `number`                                                  | Device Pixel Ratio (1.0-4.0)  |
+| `quality`   | `number`                                                  | Image quality (1-100)         |
 
 ## Advanced Usage
 
 ### Responsive Images
 
 ```tsx
-import Image from 'next/image';
+import Image from "next/image";
 
 export function ResponsiveImage() {
   return (
@@ -283,7 +286,7 @@ export function ResponsiveImage() {
 ### Priority Images
 
 ```tsx
-import Image from 'next/image';
+import Image from "next/image";
 
 export function HeroImage() {
   return (

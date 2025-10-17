@@ -180,19 +180,19 @@ echo '<img src="' . esc_url($imageUrl) . '" alt="' . esc_attr(get_the_title()) .
 
 ## Transform 옵션
 
-| 옵션 | 타입 | 설명 |
-|------|------|------|
-| `w` | `int\|null` | 이미지 너비 (픽셀) |
-| `h` | `int\|null` | 이미지 높이 (픽셀) |
-| `fit` | `string\|null` | 리사이즈 방식 ('contain', 'cover', 'fill', 'inside', 'outside') |
-| `format` | `string\|null` | 출력 포맷 ('jpeg', 'png', 'webp', 'avif') |
-| `rotation` | `int\|null` | 회전 각도 (degrees) |
-| `blur` | `int\|null` | 블러 강도 (0.3-1000) |
-| `grayscale` | `bool\|null` | 흑백 변환 |
-| `flip` | `bool\|null` | 상하 반전 |
-| `flop` | `bool\|null` | 좌우 반전 |
-| `extract` | `Extract\|null` | 영역 추출 |
-| `dpr` | `float\|null` | Device Pixel Ratio (1.0-4.0) |
+| 옵션        | 타입            | 설명                                                            |
+| ----------- | --------------- | --------------------------------------------------------------- |
+| `w`         | `int\|null`     | 이미지 너비 (픽셀)                                              |
+| `h`         | `int\|null`     | 이미지 높이 (픽셀)                                              |
+| `fit`       | `string\|null`  | 리사이즈 방식 ('contain', 'cover', 'fill', 'inside', 'outside') |
+| `format`    | `string\|null`  | 출력 포맷 ('jpeg', 'png', 'webp', 'avif')                       |
+| `rotation`  | `int\|null`     | 회전 각도 (degrees)                                             |
+| `blur`      | `int\|null`     | 블러 강도 (0.3-1000)                                            |
+| `grayscale` | `bool\|null`    | 흑백 변환                                                       |
+| `flip`      | `bool\|null`    | 상하 반전                                                       |
+| `flop`      | `bool\|null`    | 좌우 반전                                                       |
+| `extract`   | `Extract\|null` | 영역 추출                                                       |
+| `dpr`       | `float\|null`   | Device Pixel Ratio (1.0-4.0)                                    |
 
 ## 개발
 

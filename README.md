@@ -8,16 +8,16 @@ Build Snapkit image proxy URLs for multiple languages and frameworks.
 
 ## Supported Languages & Frameworks
 
-| Language/Framework | Platform | Package Manager | Documentation |
-|-------------------|----------|-----------------|---------------|
-| [TypeScript](#typescript) | Node.js, Browser | npm, pnpm, yarn | [Docs](typescript/README.md) |
-| [JavaScript](#javascript) | Node.js, Browser | npm, pnpm, yarn | [Docs](javascript/README.md) |
-| [Next.js](#nextjs) | React (SSR) | npm, pnpm, yarn | [Docs](nextjs/README.md) |
-| [Nuxt](#nuxt) | Vue (SSR) | npm, pnpm, yarn | [Docs](nuxt/README.md) |
-| [Swift](#swift) | iOS, macOS, tvOS, watchOS | Swift Package Manager | [Docs](swift/README.md) |
-| [Kotlin](#kotlin) | Android | Gradle | [Docs](kotlin/README.md) |
-| [Dart](#dart) | Flutter | pub | [Docs](dart/README.md) |
-| [PHP](#php) | Web | Composer | [Docs](php/README.md) |
+| Language/Framework        | Platform                  | Package Manager       | Documentation                |
+| ------------------------- | ------------------------- | --------------------- | ---------------------------- |
+| [TypeScript](#typescript) | Node.js, Browser          | npm, pnpm, yarn       | [Docs](typescript/README.md) |
+| [JavaScript](#javascript) | Node.js, Browser          | npm, pnpm, yarn       | [Docs](javascript/README.md) |
+| [Next.js](#nextjs)        | React (SSR)               | npm, pnpm, yarn       | [Docs](nextjs/README.md)     |
+| [Nuxt](#nuxt)             | Vue (SSR)                 | npm, pnpm, yarn       | [Docs](nuxt/README.md)       |
+| [Swift](#swift)           | iOS, macOS, tvOS, watchOS | Swift Package Manager | [Docs](swift/README.md)      |
+| [Kotlin](#kotlin)         | Android                   | Gradle                | [Docs](kotlin/README.md)     |
+| [Dart](#dart)             | Flutter                   | pub                   | [Docs](dart/README.md)       |
+| [PHP](#php)               | Web                       | Composer              | [Docs](php/README.md)        |
 
 ## Quick Start Examples
 
@@ -30,13 +30,13 @@ Copy the `buildSnapkitImageURL` function from [typescript/src/buildSnapkitImageU
 // Then use it in your code:
 
 const imageUrl = buildSnapkitImageURL({
-  organizationName: 'my-org',
-  url: 'https://cdn.cloudfront.net/image.jpg',
+  organizationName: "my-org",
+  url: "https://cdn.cloudfront.net/image.jpg",
   transform: {
     w: 300,
     h: 200,
-    fit: 'cover',
-    format: 'webp',
+    fit: "cover",
+    format: "webp",
   },
 });
 ```
@@ -50,13 +50,13 @@ Copy the `buildSnapkitImageURL` function from [javascript/src/buildSnapkitImageU
 // Then use it in your code:
 
 const imageUrl = buildSnapkitImageURL({
-  organizationName: 'my-org',
-  url: 'https://cdn.cloudfront.net/image.jpg',
+  organizationName: "my-org",
+  url: "https://cdn.cloudfront.net/image.jpg",
   transform: {
     w: 300,
     h: 200,
-    fit: 'cover',
-    format: 'webp',
+    fit: "cover",
+    format: "webp",
   },
 });
 ```
@@ -73,20 +73,20 @@ See the [Next.js documentation](nextjs/README.md) for complete implementation. C
 // next.config.js
 module.exports = {
   images: {
-    loader: 'custom',
-    loaderFile: './lib/snapkit-loader.ts',
+    loader: "custom",
+    loaderFile: "./lib/snapkit-loader.ts",
   },
 };
 
 // Component
-import Image from 'next/image';
+import Image from "next/image";
 
 <Image
   src="https://cdn.cloudfront.net/image.jpg"
   width={300}
   height={200}
   alt="Example"
-/>
+/>;
 ```
 
 ### Nuxt
@@ -94,14 +94,14 @@ import Image from 'next/image';
 ```typescript
 // nuxt.config.ts
 export default defineNuxtConfig({
-  modules: ['@nuxt/image'],
+  modules: ["@nuxt/image"],
   image: {
     providers: {
       snapkit: {
-        name: 'snapkit',
-        provider: '~/providers/snapkit',
+        name: "snapkit",
+        provider: "~/providers/snapkit",
         options: {
-          organizationName: 'my-org',
+          organizationName: "my-org",
         },
       },
     },
@@ -118,7 +118,7 @@ export default defineNuxtConfig({
     fit="cover"
     format="webp"
   />
-</template>
+</template>;
 ```
 
 ### Swift
@@ -214,19 +214,19 @@ The `url` parameter is **optional** and should only be used when you need to con
 
 All implementations support the following transform options:
 
-| Option | Type | Description |
-|--------|------|-------------|
-| `w` | `number` | Image width in pixels |
-| `h` | `number` | Image height in pixels |
-| `fit` | `string` | Resize mode: `contain`, `cover`, `fill`, `inside`, `outside` |
-| `format` | `string` | Output format: `jpeg`, `png`, `webp`, `avif` |
-| `rotation` | `number` | Rotation angle in degrees |
-| `blur` | `number` | Blur intensity (0.3-1000) |
-| `grayscale` | `boolean` | Convert to grayscale |
-| `flip` | `boolean` | Flip vertically |
-| `flop` | `boolean` | Flip horizontally |
-| `extract` | `object` | Extract region `{x, y, width, height}` |
-| `dpr` | `number` | Device Pixel Ratio (1.0-4.0) |
+| Option      | Type      | Description                                                  |
+| ----------- | --------- | ------------------------------------------------------------ |
+| `w`         | `number`  | Image width in pixels                                        |
+| `h`         | `number`  | Image height in pixels                                       |
+| `fit`       | `string`  | Resize mode: `contain`, `cover`, `fill`, `inside`, `outside` |
+| `format`    | `string`  | Output format: `jpeg`, `png`, `webp`, `avif`                 |
+| `rotation`  | `number`  | Rotation angle in degrees                                    |
+| `blur`      | `number`  | Blur intensity (0.3-1000)                                    |
+| `grayscale` | `boolean` | Convert to grayscale                                         |
+| `flip`      | `boolean` | Flip vertically                                              |
+| `flop`      | `boolean` | Flip horizontally                                            |
+| `extract`   | `object`  | Extract region `{x, y, width, height}`                       |
+| `dpr`       | `number`  | Device Pixel Ratio (1.0-4.0)                                 |
 
 ## Features
 

@@ -146,19 +146,19 @@ class MyWidget extends StatelessWidget {
 
 ## Transform 옵션
 
-| 옵션 | 타입 | 설명 |
-|------|------|------|
-| `w` | `int?` | 이미지 너비 (픽셀) |
-| `h` | `int?` | 이미지 높이 (픽셀) |
-| `fit` | `Fit?` | 리사이즈 방식 (contain, cover, fill, inside, outside) |
-| `format` | `Format?` | 출력 포맷 (jpeg, png, webp, avif) |
-| `rotation` | `int?` | 회전 각도 (degrees) |
-| `blur` | `int?` | 블러 강도 (0.3-1000) |
-| `grayscale` | `bool?` | 흑백 변환 |
-| `flip` | `bool?` | 상하 반전 |
-| `flop` | `bool?` | 좌우 반전 |
-| `extract` | `Extract?` | 영역 추출 |
-| `dpr` | `double?` | Device Pixel Ratio (1.0-4.0) |
+| 옵션        | 타입       | 설명                                                  |
+| ----------- | ---------- | ----------------------------------------------------- |
+| `w`         | `int?`     | 이미지 너비 (픽셀)                                    |
+| `h`         | `int?`     | 이미지 높이 (픽셀)                                    |
+| `fit`       | `Fit?`     | 리사이즈 방식 (contain, cover, fill, inside, outside) |
+| `format`    | `Format?`  | 출력 포맷 (jpeg, png, webp, avif)                     |
+| `rotation`  | `int?`     | 회전 각도 (degrees)                                   |
+| `blur`      | `int?`     | 블러 강도 (0.3-1000)                                  |
+| `grayscale` | `bool?`    | 흑백 변환                                             |
+| `flip`      | `bool?`    | 상하 반전                                             |
+| `flop`      | `bool?`    | 좌우 반전                                             |
+| `extract`   | `Extract?` | 영역 추출                                             |
+| `dpr`       | `double?`  | Device Pixel Ratio (1.0-4.0)                          |
 
 ## 개발
 

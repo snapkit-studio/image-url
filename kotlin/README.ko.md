@@ -131,19 +131,19 @@ fun SnapkitImage() {
 
 ## Transform 옵션
 
-| 옵션 | 타입 | 설명 |
-|------|------|------|
-| `w` | `Int?` | 이미지 너비 (픽셀) |
-| `h` | `Int?` | 이미지 높이 (픽셀) |
-| `fit` | `Fit?` | 리사이즈 방식 (CONTAIN, COVER, FILL, INSIDE, OUTSIDE) |
-| `format` | `Format?` | 출력 포맷 (JPEG, PNG, WEBP, AVIF) |
-| `rotation` | `Int?` | 회전 각도 (degrees) |
-| `blur` | `Int?` | 블러 강도 (0.3-1000) |
-| `grayscale` | `Boolean?` | 흑백 변환 |
-| `flip` | `Boolean?` | 상하 반전 |
-| `flop` | `Boolean?` | 좌우 반전 |
-| `extract` | `Extract?` | 영역 추출 |
-| `dpr` | `Double?` | Device Pixel Ratio (1.0-4.0) |
+| 옵션        | 타입       | 설명                                                  |
+| ----------- | ---------- | ----------------------------------------------------- |
+| `w`         | `Int?`     | 이미지 너비 (픽셀)                                    |
+| `h`         | `Int?`     | 이미지 높이 (픽셀)                                    |
+| `fit`       | `Fit?`     | 리사이즈 방식 (CONTAIN, COVER, FILL, INSIDE, OUTSIDE) |
+| `format`    | `Format?`  | 출력 포맷 (JPEG, PNG, WEBP, AVIF)                     |
+| `rotation`  | `Int?`     | 회전 각도 (degrees)                                   |
+| `blur`      | `Int?`     | 블러 강도 (0.3-1000)                                  |
+| `grayscale` | `Boolean?` | 흑백 변환                                             |
+| `flip`      | `Boolean?` | 상하 반전                                             |
+| `flop`      | `Boolean?` | 좌우 반전                                             |
+| `extract`   | `Extract?` | 영역 추출                                             |
+| `dpr`       | `Double?`  | Device Pixel Ratio (1.0-4.0)                          |
 
 ## 개발
 

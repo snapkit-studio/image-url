@@ -24,9 +24,9 @@ export interface TransformOptions {
   /** 이미지 높이 (픽셀) */
   h?: number;
   /** 리사이즈 방식 */
-  fit?: 'contain' | 'cover' | 'fill' | 'inside' | 'outside';
+  fit?: "contain" | "cover" | "fill" | "inside" | "outside";
   /** 출력 포맷 */
-  format?: 'jpeg' | 'png' | 'webp' | 'avif';
+  format?: "jpeg" | "png" | "webp" | "avif";
   /** 회전 각도 (degrees) */
   rotation?: number;
   /** 블러 강도 (0.3-1000) */
@@ -73,15 +73,16 @@ function buildTransformString(options: TransformOptions): string {
   if (options.h !== undefined) parts.push(`h:${options.h}`);
   if (options.fit) parts.push(`fit:${options.fit}`);
   if (options.format) parts.push(`format:${options.format}`);
-  if (options.rotation !== undefined) parts.push(`rotation:${options.rotation}`);
+  if (options.rotation !== undefined)
+    parts.push(`rotation:${options.rotation}`);
   if (options.blur !== undefined) parts.push(`blur:${options.blur}`);
   if (options.dpr !== undefined) parts.push(`dpr:${options.dpr}`);
   if (options.quality !== undefined) parts.push(`quality:${options.quality}`);
 
   // Boolean 파라미터 (키만, 값 없음)
-  if (options.grayscale) parts.push('grayscale');
-  if (options.flip) parts.push('flip');
-  if (options.flop) parts.push('flop');
+  if (options.grayscale) parts.push("grayscale");
+  if (options.flip) parts.push("flip");
+  if (options.flop) parts.push("flop");
 
   // extract 파라미터 (x-y-width-height)
   if (options.extract) {
@@ -89,13 +90,15 @@ function buildTransformString(options: TransformOptions): string {
     parts.push(`extract:${x}-${y}-${width}-${height}`);
   }
 
-  return parts.join(',');
+  return parts.join(",");
 }
 
 /**
  * Snapkit 이미지 프록시 URL 생성
  */
-export function buildSnapkitImageURL(params: BuildSnapkitImageURLParams): string {
+export function buildSnapkitImageURL(
+  params: BuildSnapkitImageURLParams,
+): string {
   const { organizationName, url, transform } = params;
 
   // 기본 URL 구성
@@ -103,13 +106,13 @@ export function buildSnapkitImageURL(params: BuildSnapkitImageURLParams): string
 
   // URLSearchParams로 쿼리 파라미터 구성
   const searchParams = new URLSearchParams();
-  searchParams.set('url', url);
+  searchParams.set("url", url);
 
   // transform 옵션이 있으면 추가
   if (transform) {
     const transformString = buildTransformString(transform);
     if (transformString) {
-      searchParams.set('transform', transformString);
+      searchParams.set("transform", transformString);
     }
   }
 
@@ -123,7 +126,7 @@ Next.js Image Component용 loader 함수를 생성합니다:
 
 ```ts
 // lib/snapkit-loader.ts
-import { buildSnapkitImageURL } from './snapkit-image-url';
+import { buildSnapkitImageURL } from "./snapkit-image-url";
 
 export default function snapkitLoader({
   src,
@@ -135,12 +138,12 @@ export default function snapkitLoader({
   quality?: number;
 }): string {
   return buildSnapkitImageURL({
-    organizationName: process.env.NEXT_PUBLIC_SNAPKIT_ORG || 'my-org',
+    organizationName: process.env.NEXT_PUBLIC_SNAPKIT_ORG || "my-org",
     url: src,
     transform: {
       w: width,
       quality,
-      format: 'webp',
+      format: "webp",
     },
   });
 }
@@ -156,8 +159,8 @@ Next.js 설정에서 loader를 전역으로 구성합니다:
 // next.config.js
 module.exports = {
   images: {
-    loader: 'custom',
-    loaderFile: './lib/snapkit-loader.ts',
+    loader: "custom",
+    loaderFile: "./lib/snapkit-loader.ts",
   },
 };
 ```
@@ -165,7 +168,7 @@ module.exports = {
 이후 Image 컴포넌트를 일반적으로 사용합니다:
 
 ```tsx
-import Image from 'next/image';
+import Image from "next/image";
 
 export function MyComponent() {
   return (
@@ -184,8 +187,8 @@ export function MyComponent() {
 개별 Image 컴포넌트에 loader를 직접 전달합니다:
 
 ```tsx
-import Image from 'next/image';
-import snapkitLoader from '@/lib/snapkit-loader';
+import Image from "next/image";
+import snapkitLoader from "@/lib/snapkit-loader";
 
 export function MyComponent() {
   return (
@@ -205,18 +208,18 @@ export function MyComponent() {
 다양한 사용 사례에 맞는 커스텀 loader를 생성합니다:
 
 ```tsx
-import Image from 'next/image';
-import { buildSnapkitImageURL } from '@/lib/snapkit-image-url';
+import Image from "next/image";
+import { buildSnapkitImageURL } from "@/lib/snapkit-image-url";
 
 const highQualityLoader = ({ src, width }: { src: string; width: number }) => {
   return buildSnapkitImageURL({
-    organizationName: 'my-org',
+    organizationName: "my-org",
     url: src,
     transform: {
       w: width,
-      format: 'avif',
+      format: "avif",
       quality: 90,
-      fit: 'cover',
+      fit: "cover",
     },
   });
 };
@@ -245,27 +248,27 @@ export function HeroImage() {
 
 ## Transform 옵션
 
-| 옵션 | 타입 | 설명 |
-|------|------|------|
-| `w` | `number` | 이미지 너비 (픽셀) |
-| `h` | `number` | 이미지 높이 (픽셀) |
-| `fit` | `'contain' \| 'cover' \| 'fill' \| 'inside' \| 'outside'` | 리사이즈 방식 |
-| `format` | `'jpeg' \| 'png' \| 'webp' \| 'avif'` | 출력 포맷 (기본: webp) |
-| `rotation` | `number` | 회전 각도 (degrees) |
-| `blur` | `number` | 블러 강도 (0.3-1000) |
-| `grayscale` | `boolean` | 흑백 변환 |
-| `flip` | `boolean` | 상하 반전 |
-| `flop` | `boolean` | 좌우 반전 |
-| `extract` | `{ x, y, width, height }` | 영역 추출 |
-| `dpr` | `number` | Device Pixel Ratio (1.0-4.0) |
-| `quality` | `number` | 이미지 품질 (1-100) |
+| 옵션        | 타입                                                      | 설명                         |
+| ----------- | --------------------------------------------------------- | ---------------------------- |
+| `w`         | `number`                                                  | 이미지 너비 (픽셀)           |
+| `h`         | `number`                                                  | 이미지 높이 (픽셀)           |
+| `fit`       | `'contain' \| 'cover' \| 'fill' \| 'inside' \| 'outside'` | 리사이즈 방식                |
+| `format`    | `'jpeg' \| 'png' \| 'webp' \| 'avif'`                     | 출력 포맷 (기본: webp)       |
+| `rotation`  | `number`                                                  | 회전 각도 (degrees)          |
+| `blur`      | `number`                                                  | 블러 강도 (0.3-1000)         |
+| `grayscale` | `boolean`                                                 | 흑백 변환                    |
+| `flip`      | `boolean`                                                 | 상하 반전                    |
+| `flop`      | `boolean`                                                 | 좌우 반전                    |
+| `extract`   | `{ x, y, width, height }`                                 | 영역 추출                    |
+| `dpr`       | `number`                                                  | Device Pixel Ratio (1.0-4.0) |
+| `quality`   | `number`                                                  | 이미지 품질 (1-100)          |
 
 ## 고급 사용
 
 ### 반응형 이미지
 
 ```tsx
-import Image from 'next/image';
+import Image from "next/image";
 
 export function ResponsiveImage() {
   return (
@@ -283,7 +286,7 @@ export function ResponsiveImage() {
 ### 우선순위 이미지
 
 ```tsx
-import Image from 'next/image';
+import Image from "next/image";
 
 export function HeroImage() {
   return (

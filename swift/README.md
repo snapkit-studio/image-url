@@ -12,6 +12,7 @@ Swift로 작성된 Snapkit 이미지 프록시 URL 생성 라이브러리입니�
 - Swift 5.9+
 
 또는 Xcode에서:
+
 1. File > Add Packages...
 2. Repository URL 입력: `https://github.com/snapkit-studio/snapkit-image-url-swift.git`
 
@@ -165,19 +166,19 @@ The `url` parameter is **optional** and should only be used when you need to con
 
 ## Transform 옵션
 
-| 옵션 | 타입 | 설명 |
-|------|------|------|
-| `w` | `Int?` | 이미지 너비 (픽셀) |
-| `h` | `Int?` | 이미지 높이 (픽셀) |
-| `fit` | `Fit?` | 리사이즈 방식 (.contain, .cover, .fill, .inside, .outside) |
-| `format` | `Format?` | 출력 포맷 (.jpeg, .png, .webp, .avif) |
-| `rotation` | `Int?` | 회전 각도 (degrees) |
-| `blur` | `Int?` | 블러 강도 (0.3-1000) |
-| `grayscale` | `Bool?` | 흑백 변환 |
-| `flip` | `Bool?` | 상하 반전 |
-| `flop` | `Bool?` | 좌우 반전 |
-| `extract` | `Extract?` | 영역 추출 |
-| `dpr` | `Double?` | Device Pixel Ratio (1.0-4.0) |
+| 옵션        | 타입       | 설명                                                       |
+| ----------- | ---------- | ---------------------------------------------------------- |
+| `w`         | `Int?`     | 이미지 너비 (픽셀)                                         |
+| `h`         | `Int?`     | 이미지 높이 (픽셀)                                         |
+| `fit`       | `Fit?`     | 리사이즈 방식 (.contain, .cover, .fill, .inside, .outside) |
+| `format`    | `Format?`  | 출력 포맷 (.jpeg, .png, .webp, .avif)                      |
+| `rotation`  | `Int?`     | 회전 각도 (degrees)                                        |
+| `blur`      | `Int?`     | 블러 강도 (0.3-1000)                                       |
+| `grayscale` | `Bool?`    | 흑백 변환                                                  |
+| `flip`      | `Bool?`    | 상하 반전                                                  |
+| `flop`      | `Bool?`    | 좌우 반전                                                  |
+| `extract`   | `Extract?` | 영역 추출                                                  |
+| `dpr`       | `Double?`  | Device Pixel Ratio (1.0-4.0)                               |
 
 ## 개발
 
