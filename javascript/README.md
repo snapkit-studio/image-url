@@ -2,7 +2,7 @@
 
 [English](README.md) | [한국어](README.ko.md)
 
-Snapkit image proxy URL builder library written in JavaScript.
+Snapkit image proxy URL builder reference implementation written in JavaScript.
 
 > **⚠️ Note**: This is a reference implementation, not a published package. Copy the code below into your project.
 

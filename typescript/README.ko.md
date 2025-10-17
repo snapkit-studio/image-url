@@ -1,6 +1,6 @@
 # Snapkit Image URL Builder - TypeScript
 
-TypeScript로 작성된 Snapkit 이미지 프록시 URL 생성 라이브러리입니다.
+TypeScript로 작성된 Snapkit 이미지 프록시 URL 생성 참고용 구현입니다.
 
 > **⚠️ 안내**: 배포된 패키지가 아닌 참고용 구현입니다. 아래 코드를 프로젝트에 복사하여 사용하세요.
 

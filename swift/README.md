@@ -2,7 +2,7 @@
 
 [English](README.md) | [한국어](README.ko.md)
 
-Snapkit image proxy URL builder library written in Swift.
+Snapkit image proxy URL builder reference implementation written in Swift.
 
 > **⚠️ Note**: This is a reference implementation, not a published package. Copy the code below into your project.
 
@@ -13,7 +13,7 @@ Snapkit image proxy URL builder library written in Swift.
 The complete code is provided so you can copy and use it directly without opening source files:
 
 <details>
-<summary><strong>View Full Code (185 lines)</strong></summary>
+<summary><strong>View Full Code</strong></summary>
 
 ````swift
 import Foundation
