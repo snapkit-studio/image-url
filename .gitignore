@@ -7,8 +7,6 @@ vendor/
 dist/
 build/
 out/
-*.js
-*.d.ts
 *.map
 !vitest.config.js
 
