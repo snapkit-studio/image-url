@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest";
-import { createSnapkitLoader } from "../snapkit-loader";
-import snapkitLoader from "../snapkit-loader";
+import { createSnapkitLoader } from "../snapkit-loader.js";
+import snapkitLoader from "../snapkit-loader.js";
 
 describe("createSnapkitLoader", () => {
   const baseParams = {

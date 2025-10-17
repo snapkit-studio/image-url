@@ -1,68 +1,18 @@
+'use client'
+
 /**
  * Snapkit Custom Loader for Next.js Image Component
- * @see https://nextjs.org/docs/api-reference/next/image#loader
+ * @see https://nextjs.org/docs/app/api-reference/components/image#loaderfile
  */
-
-/**
- * Image transformation parameter type definition
- */
-export interface TransformOptions {
-  /** Image width (pixels) */
-  w?: number;
-  /** Image height (pixels) */
-  h?: number;
-  /** Resize method */
-  fit?: "contain" | "cover" | "fill" | "inside" | "outside";
-  /** Output format */
-  format?: "jpeg" | "png" | "webp" | "avif";
-  /** Rotation angle (degrees) */
-  rotation?: number;
-  /** Blur intensity (0.3-1000) */
-  blur?: number;
-  /** Whether to convert to grayscale */
-  grayscale?: boolean;
-  /** Whether to flip vertically */
-  flip?: boolean;
-  /** Whether to flip horizontally */
-  flop?: boolean;
-  /** Region extraction (x, y, width, height) */
-  extract?: {
-    x: number;
-    y: number;
-    width: number;
-    height: number;
-  };
-  /** Device Pixel Ratio (1.0-4.0) */
-  dpr?: number;
-  /** Image quality (1-100) */
-  quality?: number;
-}
-
-/**
- * Next.js Image Loader parameters
- */
-export interface NextImageLoaderParams {
-  src: string;
-  width: number;
-  quality?: number;
-}
-
-/**
- * Snapkit Loader configuration
- */
-export interface SnapkitLoaderConfig {
-  organizationName: string;
-  transform?: Omit<TransformOptions, "w" | "h">;
-}
 
 /**
  * Convert TransformOptions to query string
+ * @param {Object} options - Transform options
+ * @param {number} width - Image width
+ * @returns {string} Transform query string
  */
-function buildTransformString(
-  options: TransformOptions,
-  width: number,
-): string {
-  const parts: string[] = [];
+function buildTransformString(options, width) {
+  const parts = [];
 
   // Use width provided by Next.js
   parts.push(`w:${width}`);
@@ -94,21 +44,23 @@ function buildTransformString(
 /**
  * Snapkit Custom Loader factory function
  *
- * @param config - Snapkit loader configuration
- * @returns Next.js Image Loader function
+ * @param {Object} config - Snapkit loader configuration
+ * @param {string} config.organizationName - Organization name
+ * @param {Object} [config.transform] - Default transform options
+ * @returns {Function} Next.js Image Loader function
  *
  * @example
- * ```tsx
+ * ```js
  * // next.config.js
  * module.exports = {
  *   images: {
  *     loader: 'custom',
- *     loaderFile: './snapkit-loader.ts',
+ *     loaderFile: './src/snapkit-loader.js',
  *   },
  * };
  *
- * // snapkit-loader.ts
- * import { createSnapkitLoader } from '@snapkit/image-url-nextjs';
+ * // src/snapkit-loader.js
+ * import { createSnapkitLoader } from './snapkit-loader';
  *
  * export default createSnapkitLoader({
  *   organizationName: 'my-org',
@@ -120,7 +72,7 @@ function buildTransformString(
  * ```
  *
  * @example
- * ```tsx
+ * ```jsx
  * // Usage in Component
  * import Image from 'next/image';
  *
@@ -136,12 +88,8 @@ function buildTransformString(
  * }
  * ```
  */
-export function createSnapkitLoader(config: SnapkitLoaderConfig) {
-  return function snapkitLoader({
-    src,
-    width,
-    quality,
-  }: NextImageLoaderParams): string {
+export function createSnapkitLoader(config) {
+  return function snapkitLoader({ src, width, quality }) {
     const { organizationName, transform = {} } = config;
 
     // Construct base URL
@@ -152,7 +100,7 @@ export function createSnapkitLoader(config: SnapkitLoaderConfig) {
     searchParams.set("url", src);
 
     // Generate transform string
-    const transformOptions: TransformOptions = {
+    const transformOptions = {
       ...transform,
       // Map quality to format (webp generally has the best quality/size ratio)
       format: transform.format || "webp",
@@ -172,8 +120,14 @@ export function createSnapkitLoader(config: SnapkitLoaderConfig) {
 /**
  * Default Snapkit Loader (reads organizationName from environment variables)
  *
+ * @param {Object} params - Next.js Image Loader parameters
+ * @param {string} params.src - Image source URL
+ * @param {number} params.width - Image width
+ * @param {number} [params.quality] - Image quality (1-100)
+ * @returns {string} Snapkit image URL
+ *
  * @example
- * ```tsx
+ * ```js
  * // .env.local
  * NEXT_PUBLIC_SNAPKIT_ORG=my-org
  *
@@ -181,12 +135,12 @@ export function createSnapkitLoader(config: SnapkitLoaderConfig) {
  * module.exports = {
  *   images: {
  *     loader: 'custom',
- *     loaderFile: './snapkit-loader.ts',
+ *     loaderFile: './src/snapkit-loader.js',
  *   },
  * };
  * ```
  */
-export default function snapkitLoader(params: NextImageLoaderParams): string {
+export default function snapkitLoader(params) {
   const organizationName = process.env.NEXT_PUBLIC_SNAPKIT_ORG;
 
   if (!organizationName) {
