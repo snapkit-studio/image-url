@@ -88,38 +88,6 @@ import Image from "next/image";
 />;
 ```
 
-### Nuxt
-
-```typescript
-// nuxt.config.ts
-export default defineNuxtConfig({
-  modules: ["@nuxt/image"],
-  image: {
-    providers: {
-      snapkit: {
-        name: "snapkit",
-        provider: "~/providers/snapkit",
-        options: {
-          organizationName: "my-org",
-        },
-      },
-    },
-  },
-});
-
-// Component
-<template>
-  <NuxtImg
-    provider="snapkit"
-    src="https://cdn.cloudfront.net/image.jpg"
-    width="300"
-    height="200"
-    fit="cover"
-    format="webp"
-  />
-</template>;
-```
-
 ### Swift
 
 [swift/Sources/](swift/Sources/)에서 Swift 구현을 복사하여 사용하세요:
@@ -230,7 +198,7 @@ $imageUrl = $builder->build(
 ## 기능
 
 - ✅ **타입 안전성**: TypeScript/Swift/Kotlin/Dart 완전한 타입 정의
-- ✅ **프레임워크 통합**: Next.js와 Nuxt를 위한 네이티브 로더
+- ✅ **프레임워크 통합**: Next.js를 위한 네이티브 로더
 - ✅ **URL 인코딩**: 모든 파라미터에 대한 자동 URL 인코딩
 - ✅ **포괄적인 테스트**: 각 구현별 19개 이상의 단위 테스트
 - ✅ **프로덕션 준비**: 프로덕션 환경에서 사용 중
@@ -242,7 +210,6 @@ $imageUrl = $builder->build(
 
 - **TypeScript/JavaScript**: [typescript/](typescript/) 또는 [javascript/](javascript/) 코드 복사
 - **Next.js**: [nextjs/](nextjs/) 코드 복사
-- **Nuxt**: [nuxt/](nuxt/) 코드 복사
 - **Swift**: [swift/](swift/) 코드 복사
 - **Kotlin**: [kotlin/](kotlin/) 코드 복사
 - **Dart**: [dart/](dart/) 코드 복사
@@ -255,7 +222,7 @@ $imageUrl = $builder->build(
 각 구현은 포괄적인 단위 테스트를 포함합니다:
 
 ```bash
-# TypeScript/JavaScript/Next.js/Nuxt
+# TypeScript/JavaScript/Next.js
 pnpm test
 
 # Swift
@@ -286,7 +253,6 @@ MIT
 - [TypeScript 문서](typescript/README.ko.md)
 - [JavaScript 문서](javascript/README.ko.md)
 - [Next.js 문서](nextjs/README.ko.md)
-- [Nuxt 문서](nuxt/README.ko.md)
 - [Swift 문서](swift/README.ko.md)
 - [Kotlin 문서](kotlin/README.ko.md)
 - [Dart 문서](dart/README.ko.md)

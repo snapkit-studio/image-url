@@ -13,7 +13,6 @@ Build Snapkit image proxy URLs for multiple languages and frameworks.
 | [TypeScript](#typescript) | Node.js, Browser          | npm, pnpm, yarn       | [Docs](typescript/README.md) |
 | [JavaScript](#javascript) | Node.js, Browser          | npm, pnpm, yarn       | [Docs](javascript/README.md) |
 | [Next.js](#nextjs)        | React (SSR)               | npm, pnpm, yarn       | [Docs](nextjs/README.md)     |
-| [Nuxt](#nuxt)             | Vue (SSR)                 | npm, pnpm, yarn       | [Docs](nuxt/README.md)       |
 | [Swift](#swift)           | iOS, macOS, tvOS, watchOS | Swift Package Manager | [Docs](swift/README.md)      |
 | [Kotlin](#kotlin)         | Android                   | Gradle                | [Docs](kotlin/README.md)     |
 | [Dart](#dart)             | Flutter                   | pub                   | [Docs](dart/README.md)       |
@@ -87,38 +86,6 @@ import Image from "next/image";
   height={200}
   alt="Example"
 />;
-```
-
-### Nuxt
-
-```typescript
-// nuxt.config.ts
-export default defineNuxtConfig({
-  modules: ["@nuxt/image"],
-  image: {
-    providers: {
-      snapkit: {
-        name: "snapkit",
-        provider: "~/providers/snapkit",
-        options: {
-          organizationName: "my-org",
-        },
-      },
-    },
-  },
-});
-
-// Component
-<template>
-  <NuxtImg
-    provider="snapkit"
-    src="https://cdn.cloudfront.net/image.jpg"
-    width="300"
-    height="200"
-    fit="cover"
-    format="webp"
-  />
-</template>;
 ```
 
 ### Swift
@@ -231,7 +198,7 @@ All implementations support the following transform options:
 ## Features
 
 - ✅ **Type-safe**: Full TypeScript/Swift/Kotlin/Dart type definitions
-- ✅ **Framework integration**: Native loaders for Next.js and Nuxt
+- ✅ **Framework integration**: Native loader for Next.js
 - ✅ **URL encoding**: Automatic URL encoding for all parameters
 - ✅ **Comprehensive testing**: 19+ unit tests for each implementation
 - ✅ **Production ready**: Used in production environments
@@ -243,7 +210,6 @@ All implementations support the following transform options:
 
 - **TypeScript/JavaScript**: Copy code from [typescript/](typescript/) or [javascript/](javascript/)
 - **Next.js**: Copy code from [nextjs/](nextjs/)
-- **Nuxt**: Copy code from [nuxt/](nuxt/)
 - **Swift**: Copy code from [swift/](swift/)
 - **Kotlin**: Copy code from [kotlin/](kotlin/)
 - **Dart**: Copy code from [dart/](dart/)
@@ -256,7 +222,7 @@ See individual documentation for detailed implementation instructions.
 Each implementation includes comprehensive unit tests:
 
 ```bash
-# TypeScript/JavaScript/Next.js/Nuxt
+# TypeScript/JavaScript/Next.js
 pnpm test
 
 # Swift
@@ -287,7 +253,6 @@ For detailed documentation, examples, and API reference, see the individual lang
 - [TypeScript Documentation](typescript/README.md)
 - [JavaScript Documentation](javascript/README.md)
 - [Next.js Documentation](nextjs/README.md)
-- [Nuxt Documentation](nuxt/README.md)
 - [Swift Documentation](swift/README.md)
 - [Kotlin Documentation](kotlin/README.md)
 - [Dart Documentation](dart/README.md)
