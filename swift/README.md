@@ -275,15 +275,22 @@ let imageURL = builder.build(
 )
 
 if let url = imageURL {
-    // Load image with URLSession
-    URLSession.shared.dataTask(with: url) { data, response, error in
-        if let data = data, let image = UIImage(data: data) {
-            DispatchQueue.main.async {
-                imageView.image = image
+    Task {
+        do {
+            // URLSession의 async/await 버전 data(from:) 사용
+            let (data, _) = try await URLSession.shared.data(from: url)
+            if let image = UIImage(data: data) {
+                // 메인 스레드에서 UI 업데이트
+                await MainActor.run {
+                    imageView.image = image
+                }
             }
+        } catch {
+            // 에러 처리
         }
-    }.resume()
+    }
 }
+
 ```
 
 ```swift
