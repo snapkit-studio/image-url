@@ -107,7 +107,7 @@ public struct TransformOptions {
 }
 
 /// Snapkit image URL builder
-public struct SnapkitImageURL {
+public struct SnapkitImageURLBuilder {
     private let organizationName: String
 
     public init(organizationName: String) {
@@ -123,7 +123,7 @@ public struct SnapkitImageURL {
     ///
     /// # Example
     /// ```swift
-    /// let builder = SnapkitImageURL(organizationName: "my-org")
+    /// let builder = SnapkitImageURLBuilder(organizationName: "my-org")
     /// let imageURL = builder.build(
     ///     url: "https://cdn.cloudfront.net/image.jpg",
     ///     transform: TransformOptions(
@@ -206,7 +206,7 @@ public struct SnapkitImageURL {
 
 ### Step 2: Create and paste file in your project
 
-Save the copied code as `SnapkitImageURL.swift` file in your project.
+Save the copied code as `SnapkitImageURLBuilder.swift` file in your project.
 
 ## Requirements
 
@@ -220,7 +220,7 @@ Save the copied code as `SnapkitImageURL.swift` file in your project.
 ```swift
 import SnapkitImageURL
 
-let builder = SnapkitImageURL(organizationName: "my-org")
+let builder = SnapkitImageURLBuilder(organizationName: "my-org")
 let imageURL = builder.build(url: "https://cdn.cloudfront.net/image.jpg")
 // → https://my-org.snapkit.dev/image?url=https%3A%2F%2Fcdn.cloudfront.net%2Fimage.jpg
 ```
@@ -268,7 +268,7 @@ let imageURL = builder.build(
 import UIKit
 import SnapkitImageURL
 
-let builder = SnapkitImageURL(organizationName: "my-org")
+let builder = SnapkitImageURLBuilder(organizationName: "my-org")
 let imageURL = builder.build(
     url: "https://cdn.cloudfront.net/image.jpg",
     transform: TransformOptions(w: 300, h: 200, fit: .cover, format: .webp)
@@ -291,7 +291,7 @@ if let url = imageURL {
 import AppKit
 import SnapkitImageURL
 
-let builder = SnapkitImageURL(organizationName: "my-org")
+let builder = SnapkitImageURLBuilder(organizationName: "my-org")
 let imageURL = builder.build(
     url: "https://cdn.cloudfront.net/image.jpg",
     transform: TransformOptions(w: 300, h: 200, fit: .cover, format: .webp)
@@ -316,7 +316,7 @@ import SnapkitImageURL
 
 struct ContentView: View {
     @State private var image: UIImage?
-    let builder = SnapkitImageURL(organizationName: "my-org")
+    let builder = SnapkitImageURLBuilder(organizationName: "my-org")
 
     var body: some View {
         if let image = image {
@@ -386,7 +386,7 @@ The `url` parameter is **optional** and should only be used when you need to con
 swift test
 
 # Specific platform
-swift test --filter SnapkitImageURLTests
+swift test --filter SnapkitImageURLBuilderTests
 ```
 
 ### Build

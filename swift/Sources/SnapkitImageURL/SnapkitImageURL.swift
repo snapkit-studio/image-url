@@ -89,7 +89,7 @@ public struct TransformOptions {
 }
 
 /// Snapkit image URL builder
-public struct SnapkitImageURL {
+public struct SnapkitImageURLBuilder {
     private let organizationName: String
 
     public init(organizationName: String) {
@@ -105,7 +105,7 @@ public struct SnapkitImageURL {
     ///
     /// # Example
     /// ```swift
-    /// let builder = SnapkitImageURL(organizationName: "my-org")
+    /// let builder = SnapkitImageURLBuilder(organizationName: "my-org")
     /// let imageURL = builder.build(
     ///     url: "https://cdn.cloudfront.net/image.jpg",
     ///     transform: TransformOptions(
